@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Post
+from tagulous.contrib.drf import TagSerializer
 
 
 class PostSerializer (serializers.ModelSerializer):
@@ -43,3 +44,11 @@ class PostSerializer (serializers.ModelSerializer):
             'latitude', 'longitude', 'formatted_address',
             'place_id', 'tags', 'image_filter',
         ]
+
+
+class TagSerializer(serializers.ModelSerializer):
+    """Serializer for Tag model."""
+
+    class Meta:
+        model = Post.tags.tag_model
+        fields = ["id", "name"]
