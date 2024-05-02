@@ -52,9 +52,19 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'rest_framework',
+    'tagulous',
 
     'profiles',
+    'posts',
 ]
+
+# tagulous settings:
+SERIALIZATION_MODULES = {
+    'xml':    'tagulous.serializers.xml_serializer',
+    'json':   'tagulous.serializers.json',
+    'python': 'tagulous.serializers.python',
+    'yaml':   'tagulous.serializers.pyyaml',
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
